@@ -4,14 +4,14 @@
 using namespace std;
 
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 template<typename T>
 void insertionSort(T arr[], int n) {
 	
 	for(int i=1; i<n; i++) {
 		
 		T e = arr[i];
-		int j;      // j±£´æÔªËØeÓ¦¸Ã²åÈëµÄÎ»ÖÃ
+		int j;      // jä¿å­˜å…ƒç´ eåº”è¯¥æ’å…¥çš„ä½ç½®
 		for (j=i; j>0 && arr[j-1]>e; j--) {
 			arr[j] = arr[j-1];
 		} 
@@ -36,34 +36,34 @@ void insertionSort(T arr[], int left, int right){
     return;
 }
 
-// ¶Ôarr[l...r]²¿·Ö½øĞĞpartition²Ù×÷
-// ·µ»Øp, Ê¹µÃarr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
+// å¯¹arr[l...r]éƒ¨åˆ†è¿›è¡Œpartitionæ“ä½œ
+// è¿”å›p, ä½¿å¾—arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
 template<typename T>
-int __partition(T arr[], int left, int rigth) {
+int __partition(T arr[], int left, int right) {
 	
-	swap(arr[left], arr[rand()%(rigth-left+1)+left]);   //¶ÔÓÚ½üºõÓĞĞòµÄÊı×Ö£¬Ëæ»úÑ¡ÔñÒ»¸öÊı×÷Îª»ù×¼¿ÉÒÔ±ÜÃâ·ÖÇøÊ±ËùÓĞÊı¶¼±»·ÅÔÚÒ»±ß 
+	swap(arr[left], arr[rand()%(right-left+1)+left]);   //å¯¹äºè¿‘ä¹æœ‰åºçš„æ•°å­—ï¼Œéšæœºé€‰æ‹©ä¸€ä¸ªæ•°ä½œä¸ºåŸºå‡†å¯ä»¥é¿å…åˆ†åŒºæ—¶æ‰€æœ‰æ•°éƒ½è¢«æ”¾åœ¨ä¸€è¾¹ 
 	
 	T e = arr[left];
 	int j = left;
-	for (int i=left+1; i<=rigth; ++i) {   //Ê¹µÃ arr[l+1...j] < v ; arr[j+1...i) > v
+	for (int i=left+1; i<=right; ++i) {   //ä½¿å¾— arr[l+1...j] < v ; arr[j+1...i) > v
 		if (arr[i] < e) {
 			j++;
 			swap(arr[i], arr[j]);
 		}
 	}
 	
-	//½»»»leftºÍjµÄÔªËØ 
+	//äº¤æ¢leftå’Œjçš„å…ƒç´  
 	swap(arr[left], arr[j]);
 	
 	return j;
 	
 }
 
-// ¶Ôarr[l...r]²¿·Ö½øĞĞ¿ìËÙÅÅĞò
+// å¯¹arr[l...r]éƒ¨åˆ†è¿›è¡Œå¿«é€Ÿæ’åº
 template<typename T>
 void __quickSort(T arr[], int left, int right) {
 	
-	// ¶ÔÓÚĞ¡¹æÄ£Êı×é, Ê¹ÓÃ²åÈëÅÅĞò½øĞĞÓÅ»¯
+	// å¯¹äºå°è§„æ¨¡æ•°ç»„, ä½¿ç”¨æ’å…¥æ’åºè¿›è¡Œä¼˜åŒ–
     if( right-left <= 15 ){
         insertionSort(arr, left, right);
         return;
