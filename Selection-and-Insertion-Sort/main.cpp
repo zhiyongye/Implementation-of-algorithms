@@ -3,12 +3,12 @@
 
 using namespace std;
 
-//Ñ¡ÔñÅÅĞò 
+//é€‰æ‹©æ’åº 
 template<typename T>
 void selectionSort(T arr[], int n) {
 	
 	for(int i=0; i<n; i++) {
-		// Ñ°ÕÒ[i, n)Çø¼äÀïµÄ×îĞ¡Öµ
+		// å¯»æ‰¾[i, n)åŒºé—´é‡Œçš„æœ€å°å€¼
 		int minIndex = i;
 		for(int j=i+1; j<n; j++) {
 			if(arr[j] < arr[minIndex]) {
@@ -16,7 +16,7 @@ void selectionSort(T arr[], int n) {
 			}
 		} 
 		
-		//½»»» 
+		//äº¤æ¢ 
 		swap( arr[i] , arr[minIndex] );
 		
 	}
@@ -24,33 +24,33 @@ void selectionSort(T arr[], int n) {
 	return;
 }
 
-//²åÈëÅÅĞò
+//æ’å…¥æ’åº
 template<typename T>
 void insertionSort(T arr[], int n) {
 	
 	for(int i=1; i<n; i++) {
 		
 		/*
-		// Ñ°ÕÒÔªËØarr[i]ºÏÊÊµÄ²åÈëÎ»ÖÃ
+		// å¯»æ‰¾å…ƒç´ arr[i]åˆé€‚çš„æ’å…¥ä½ç½®
 		for(int j=i; j>0 && arr[j]<arr[j-1]; j--) {
-				swap(arr[j],arr[j-1]);     //½»»» 
+				swap(arr[j],arr[j-1]);     //äº¤æ¢ 
 		}
 		*/
 		
 		/*
-		//Ğ´·¨¶ş 
+		//å†™æ³•äºŒ 
 		for(int j=i; j>0; j--) {
 			if(arr[j]<arr[j-1]) 
-				swap(arr[j],arr[j-1]);    //½»»» 
+				swap(arr[j],arr[j-1]);    //äº¤æ¢ 
 			else 
 				break;
 		}
 		*/
 		
-		//Ğ´·¨Èı
-		//Ğ´·¨Ò»ºÍ¶ş½»»»Êı×éÔªËØµÄ´ÎÊı¶à£¬Ğ§ÂÊ±È½ÏÂı
+		//å†™æ³•ä¸‰
+		//å†™æ³•ä¸€å’ŒäºŒäº¤æ¢æ•°ç»„å…ƒç´ çš„æ¬¡æ•°å¤šï¼Œæ•ˆç‡æ¯”è¾ƒæ…¢
 		T e = arr[i];
-		int j;      // j±£´æÔªËØeÓ¦¸Ã²åÈëµÄÎ»ÖÃ
+		int j;      // jä¿å­˜å…ƒç´ eåº”è¯¥æ’å…¥çš„ä½ç½®
 		for (j=i; j>0 && arr[j-1]>e; j--) {
 			arr[j] = arr[j-1];
 		} 
@@ -61,7 +61,7 @@ void insertionSort(T arr[], int n) {
 }
 
 int main() {
-	int n = 10000;
+	int n = 100000;
 	int * arr = SortTestHelper::generateRandomArray(n,0,n);
 	int * arr2 = SortTestHelper::copyIntArray(arr,n);
 	insertionSort(arr,n);
