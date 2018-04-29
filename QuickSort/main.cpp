@@ -47,7 +47,7 @@ void quickSort(T arr[],int n) {
 }
 
 int main() {
-	int n = 100;
+	int n = 1000;
 	int * arr = SortTestHelper::generateRandomArray(n,0,n);
 	SortTestHelper::printArray(arr,n);
 	quickSort(arr,n);
