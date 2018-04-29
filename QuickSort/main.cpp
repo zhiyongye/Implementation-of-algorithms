@@ -3,28 +3,28 @@
 
 using namespace std;
 
-// ¶Ôarr[l...r]²¿·Ö½øĞĞpartition²Ù×÷
-// ·µ»Øp, Ê¹µÃarr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
+// å¯¹arr[l...r]éƒ¨åˆ†è¿›è¡Œpartitionæ“ä½œ
+// è¿”å›p, ä½¿å¾—arr[l...p-1] < arr[p] ; arr[p+1...r] > arr[p]
 template<typename T>
 int __partition(T arr[], int left, int rigth) {
 	
 	T e = arr[left];
 	int j = left;
-	for (int i=left+1; i<=rigth; ++i) {   //Ê¹µÃ arr[l+1...j] < v ; arr[j+1...i) > v
+	for (int i=left+1; i<=rigth; ++i) {   //ä½¿å¾— arr[l+1...j] < v ; arr[j+1...i) > v
 		if (arr[i] < e) {
 			j++;
 			swap(arr[i], arr[j]);
 		}
 	}
 	
-	//½»»»leftºÍjµÄÔªËØ 
+	//äº¤æ¢leftå’Œjçš„å…ƒç´  
 	swap(arr[left], arr[j]);
 	
 	return j;
 	
 }
 
-// ¶Ôarr[l...r]²¿·Ö½øĞĞ¿ìËÙÅÅĞò
+// å¯¹arr[l...r]éƒ¨åˆ†è¿›è¡Œå¿«é€Ÿæ’åº
 template<typename T>
 void __quickSort(T arr[], int left, int right) {
 	
@@ -33,7 +33,7 @@ void __quickSort(T arr[], int left, int right) {
 	}
 	
 	int p = __partition(arr, left, right);
-	__quickSort(arr, left, p);
+	__quickSort(arr, left, p-1);
 	__quickSort(arr, p+1, right);
 }
 
