@@ -46,6 +46,34 @@ void quickSort(T arr[],int n) {
 	return;
 }
 
+
+/*
+//写法二
+template<typename T> 
+void quickSort(T nums[], int left, int right) {
+	
+	if (left >= right) 
+		return;
+	
+	T ele = nums[left];
+	
+	int j = left;
+	for (int i=left+1; i<=right; ++i) {
+		if (nums[i] < ele) {
+			j++;
+			swap(nums[i], nums[j]);
+		}
+	}
+	
+	swap(nums[left], nums[j]);
+	
+	quickSort(nums, left, j-1);
+	quickSort(nums, j+1, right);
+	
+}
+
+*/
+
 int main() {
 	int n = 1000;
 	int * arr = SortTestHelper::generateRandomArray(n,0,n);
